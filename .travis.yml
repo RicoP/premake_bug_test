@@ -8,12 +8,17 @@ addons:
     packages:
       - libc6-i386 #To execute 32bit binaries on 64bit systems
 
+matrix:
+  include:
+    - compiler: gcc
+    - compiler: clang
+
 script:
+  - chmod +x ./premake/linux/premake5
   - ./premake/linux/premake5 gmake
   - pushd .build/projects/
   - make
   - popd
   - pushd .build/bin/Debug/
-  - enter
+  - ./enter
   - popd
-
