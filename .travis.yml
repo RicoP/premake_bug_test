@@ -3,6 +3,11 @@ language: cpp
 notifications:
   email: false
 
+addons:
+  apt:
+    packages:
+      - libc6-i386 #To execute 32bit binaries on 64bit systems
+
 script:
   - ./premake/linux/premake5 gmake
   - pushd .build/projects/
