@@ -1,0 +1,14 @@
+language: cpp
+
+notifications:
+  email: false
+
+script:
+  - ./premake/linux/premake5 gmake
+  - pushd .build/projects/
+  - make
+  - popd
+  - pushd .build/bin/Debug/
+  - enter
+  - popd
+
